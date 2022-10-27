@@ -1,0 +1,280 @@
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+}
+.wrapper > main {
+	flex-grow: 1;
+}
+
+/*=============================================*/
+
+body {
+	max-width: 1280px;
+	margin: 0 auto;
+	background-color: rgb(241, 237, 237);
+	height: 100%;
+}
+.header {
+	border-color: rgb(34, 124, 9);
+	padding: 20px;
+}
+.footer {
+	border-color: blueviolet;
+	padding: 20px;
+}
+
+.page {
+	padding: 25px;
+}
+.page__container {
+	margin-bottom: 30px;
+}
+.page__block {
+}
+
+/*====================*/
+
+/*Flex-контейнер*/
+
+.block {
+	height: 300px;
+	border: 5px solid orangered;
+	background: greenyellow;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	flex-direction: row;
+	gap: 20px;
+}
+
+/*Flex элемент*/
+
+.block__item {
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	font-weight: 900;
+	background: rgb(179, 174, 174);
+	padding: 15px;
+	text-align: center;
+	border: 5px solid gray;
+
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: 400px;
+	flex: 1 1 25%;
+}
+.block__item:nth-child(1) {
+	order: 1;
+}
+.block__item:nth-child(2) {
+	align-self: start;
+	order: 2;
+}
+.block__item:nth-child(3) {
+	order: 3;
+}
+.block__item:nth-child(4) {
+	order: 4;
+}
+.block__item span {
+	display: block;
+	/*transform: rotate(180deg);*/
+}
+
+/* приклад з текстом */
+.page__block {
+	margin-bottom: 80px;
+}
+.text-block {
+	color: rgb(14, 114, 181);
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	letter-spacing: 1px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+	align-items: flex-start;
+}
+.text-block__title {
+	font-size: 28px;
+}
+.text-block__link {
+	color: red;
+	align-self: center;
+}
+.text-block__link:hover {
+	text-decoration: underline;
+}
+.text-block__text {
+	color: rgb(225, 65, 6);
+}
+
+/*=====пример с картинками (Карточки)======*/
+
+.cards {
+	display: flex;
+	margin: 0px -10px;
+}
+.cards__column {
+	flex: 0 1 33.3333%;
+	padding: 0px 10px;
+}
+.cards__item {
+	border-color: aquamarine;
+	padding: 15px;
+	box-shadow: 0 0 25px black;
+	min-height: 100%;
+}
+.item-card {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: flex-start;
+}
+.item-card__image {
+	overflow: hidden;
+}
+.item-card__image img {
+	max-width: 100%;
+	transition: all 0.3s ease 0.05s;
+}
+.item-card__image img:hover {
+	transform: scale(1.2);
+}
+.item-card__text {
+	color: rgb(2, 22, 39);
+	flex-grow: 1;
+}
+.item-card__button {
+	background-color: rgb(202, 8, 153);
+	padding: 5px;
+	color: white;
+	border-radius: 10px;
+	align-self: center;
+}
+
+.item-card__button:hover {
+	box-shadow: 0 0 25px black;
+	text-decoration: underline;
+}
+
+/* 
+Пример с width
+Пример с текстом и псевдоелементом */
+.link {
+	font-family: Arial, Helvetica, sans-serif;
+	color: seagreen;
+	font-size: 40px;
+	display: inline-flex;
+	align-items: center;
+	gap: 20px;
+
+	transition: all 0.3s ease 0.05s;
+}
+.link::before {
+	content: "";
+	flex: 0 0 40px;
+	background: url(../img/crimea.jpg) 0 0 / cover no-repeat;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.link:hover {
+	transform: scale(1.2);
+	text-decoration: underline;
+}
+
+/* 
+Пример width №2
+Пример с текстом и изображением */
+
+.object {
+	display: flex;
+	align-items: start;
+	gap: 25px;
+}
+.object__icon {
+	background: url("../img/crimean_sea.jpg") 0 0 / cover no-repeat;
+	flex: 0 0 100px;
+	height: 100px;
+	animation-name: object-rotation;
+	animation-duration: 10s;
+	animation-timing-function: cubic-bezier(1, 1, 1, 1);
+	animation-iteration-count: infinite;
+	animation-delay: 0s;
+}
+@keyframes object-rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.object__title {
+	font-size: 24px;
+}
+
+/* Приклад з float 
+Обтікання
+float: left / right;
+*/
+.image {
+	/* Обтікання */
+	float: left;
+	margin-right: 25px;
+}
+
+.example {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+.example__item {
+}
+
+.item-example {
+	display: flex;
+	gap: 25px;
+	background-color: rgb(167, 168, 227);
+	padding: 10px;
+	box-shadow: 0 0 10px black;
+
+	transition: all 0.2s ease 0s;
+}
+.item-example:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+	.item-example {
+		flex-direction: column-reverse;
+	}
+	.item-example:nth-child(even) {
+		flex-direction: column-reverse;
+	}
+}
+.item-example:hover {
+	box-shadow: 0 0 15px black;
+	transform: scale(1.01);
+}
+.item-example__image {
+	flex: 0 0 110px;
+	overflow: hidden;
+}
+.item-example__image img {
+	max-width: 100%;
+
+	transition: all 0.3s ease 0.05s;
+}
+.item-example__text {
+	line-height: 120%;
+}
+.item-example__image img:hover {
+	transform: scale(1.1);
+}
